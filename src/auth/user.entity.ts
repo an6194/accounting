@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 
 import { EmployeeProfile } from '../employees/employee-profile.entity';
+import { Role } from './enums/role.enum';
 
 @Entity()
 export class User {
@@ -24,4 +25,7 @@ export class User {
   })
   @JoinColumn()
   employeeProfile: EmployeeProfile;
+
+  @Column()
+  role: Role;
 }

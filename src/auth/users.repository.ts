@@ -7,6 +7,7 @@ import {
 import { User } from './user.entity';
 import { AuthCredentialsInput } from './input/auth-credentials.input';
 import { Password } from './utils/password';
+import { Role } from './enums/role.enum';
 
 const POSTGRES_DUPLICATE_ERROR_CODE = '23505';
 
@@ -17,7 +18,11 @@ export class UsersRepository extends Repository<User> {
 
     const hashedPassword = await Password.toHash(password);
 
-    const user = this.create({ username, password: hashedPassword });
+    const user = this.create({
+      username,
+      password: hashedPassword,
+      role: Role.Employee,
+    });
 
     try {
       return this.save(user);
