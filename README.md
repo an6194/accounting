@@ -2,6 +2,10 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Initial setup
+
+Requires a postgres db instance. Enter the connection settings in the `.env` file.
+
 ## Installation
 
 ```bash
